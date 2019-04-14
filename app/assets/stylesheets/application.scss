@@ -1,0 +1,111 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ @import "font-awesome";
+
+.well {
+  width: 325px;
+  height: 675px;
+  padding: 25px;
+  background-color: #694689;
+  border-color: #ddb44b;
+}
+
+.well-sm {
+  background-color: #694689;
+  padding: 25px;
+  width: 275px;
+  height: 400px;
+  border-color: #ddb44b;
+}
+
+.well-lg {
+  width: 380px;
+  height: 765px;
+  padding: 25px;
+  background-color: #694689;
+  border-color: #ddb44b;
+}
+
+body {
+  background-color: #694689;
+}
+
+h1 {
+  color: #ddb44b;
+  font-size: 36px;
+}
+
+h2 {
+  color: #ddb44b;
+}
+
+h3 {
+  color: #ddb44b;
+}
+
+h4 {
+  color: #ddb44b;
+}
+
+h5 {
+  color: #ddb44b;
+}
+
+h6 {
+  color: #afafaf;
+  font-size: 9px;
+}
+
+p {
+  color: white;
+}
+
+.jumbotron {
+  background-color: #694689;
+  color: #ddb44b;
+  font-size: 36px;
+  max-height: 20px;
+  min-height: 20px;
+}
+
+.jumbotron h1 {
+  font-size: 40px;
+}
+
+.navbar-default {
+  width: 100%;
+  background-color: #ddb44b;
+  text-align: center;
+  outline-color: #ddb44b;
+  border-color: #ddb44b;
+}
+
+.navbar-brand {
+  width: 25%;
+  color: #ddb44b;
+  text-align: center;
+}
+
+@keyframes turn {
+  100%{transform:rotateY(360deg)}
+}
+
+#rotation {
+  animation-delay: 4s;
+  animation:turn 3s linear;
+}

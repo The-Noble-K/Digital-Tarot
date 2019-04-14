@@ -1,0 +1,37 @@
+<center><h1>Digital Tarot</h1></center>
+<br />
+
+<nav class="navbar navbar-default">
+  <div class="container">
+  <%= link_to " Home ", root_path, class: "navbar-brand" %>
+  <%= link_to " Card of the Day ", spreads_path, class: "navbar-brand" %>
+  <%= link_to " Three Card Spread ", three_card_spread_path, class: "navbar-brand" %>
+  <%= link_to " View All Cards ", view_deck_path, class: "navbar-brand" %>
+  </div>
+</nav>
+
+<div class="container">
+  <h2><center>All Cards and Their Associated Themes</center></h2>
+  <br />
+  <div class="row">
+    <% @decks.each do |deck| %>
+      <div class="col-md-4">
+        <div class="well well-lg">
+          <center>
+          <h3><%= deck.card_name %></h3>
+          <div>
+          <% if deck.image.url != nil %>
+            <%= image_tag deck.image.url, :size => '300x500' %>
+          <% end %>
+          </div>
+          <h6>© Copyright US Games Systems Inc., © Juliet Sharman-Burke, Giovanni Caselli</h6>
+          <h5>Themes:</h5>
+            <p><%= deck.meaning %></p>
+          <h5>Reverse Themes:</h5>
+            <p><%= deck.reversal %></p>
+          </center>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

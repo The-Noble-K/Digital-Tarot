@@ -1,0 +1,43 @@
+<%= form_with(model: deck, local: true) do |form| %>
+  <% if deck.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(deck.errors.count, "error") %> prohibited this deck from being saved:</h2>
+
+      <ul>
+      <% deck.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="field">
+      <%= form.label :card_name %>
+      <%= form.text_field :card_name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :image %>
+      <%= form.file_field :image %>
+    </div>
+
+    <div class="field">
+      <%= form.label :meaning %>
+      <%= form.text_area :meaning %>
+    </div>
+
+    <div class="field">
+      <%= form.label :reversal %>
+      <%= form.text_area :reversal %>
+    </div>
+
+    <div class="field">
+      <%= form.label :id %>
+      <%= form.text_field :id %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+
+<% end %>

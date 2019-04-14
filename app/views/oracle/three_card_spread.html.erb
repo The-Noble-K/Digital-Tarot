@@ -1,0 +1,104 @@
+<center><h1>Digital Tarot</h1></center>
+<br />
+
+<nav class="navbar navbar-default">
+  <div class="container">
+  <%= link_to " Home ", root_path, class: "navbar-brand" %>
+  <%= link_to " Card of the Day ", spreads_path, class: "navbar-brand" %>
+  <%= link_to " Three Card Spread ", three_card_spread_path, class: "navbar-brand" %>
+  <%= link_to " View All Cards ", view_deck_path, class: "navbar-brand" %>
+  </div>
+</nav>
+
+<center>
+<div class="container">
+
+  <h2>Past, Present, Future Spread</h2>
+
+<p>The three card Past, Present, Future spread is a classic, simple Tarot spread that is easy to interpret and fun to use.
+The left card represents themes from the past, the middle from the present, and the right
+represents themes possible in the future.</p>
+
+  <div class="row">
+    <% @decks.each do |deck| %>
+    <% if deck.id == @past_card_id %>
+      <div class="col-md-4">
+        <div class="well" id="rotation">
+          <center>
+          <h3><%= deck.card_name %>
+          <% if @past_orientation == 2 %>
+          (Reversed)
+          <% end %></h3>
+          <div>
+          <% if deck.image.url != nil %>
+            <%= image_tag deck.image.url, :size => '250x450' %>
+          <% end %>
+          </div>
+          <h6>© Copyright US Games Systems Inc., © Juliet Sharman-Burke, Giovanni Caselli</h6>
+          <% if @past_orientation == 2 %>
+          <h5>Reverse Themes:</h5>
+            <p><%= deck.reversal %></p>
+          <% else %>
+          <h5>Themes:</h5>
+            <p><%= deck.meaning %></p>
+          <% end %>
+          </center>
+        </div>
+      </div>
+      <% end %>
+
+      <% if deck.id == @present_card_id %>
+        <div class="col-md-4">
+          <div class="well" id="rotation">
+            <center>
+            <h3><%= deck.card_name %>
+            <% if @present_orientation == 2 %>
+            (Reversed)
+            <% end %></h3>
+            <div>
+            <% if deck.image.url != nil %>
+              <%= image_tag deck.image.url, :size => '250x450' %>
+            <% end %>
+            </div>
+            <h6>© Copyright US Games Systems Inc., © Juliet Sharman-Burke, Giovanni Caselli</h6>
+            <% if @present_orientation == 2 %>
+            <h5>Reverse Themes:</h5>
+              <p><%= deck.reversal %></p>
+            <% else %>
+            <h5>Themes:</h5>
+              <p><%= deck.meaning %></p>
+            <% end %>
+            </center>
+          </div>
+        </div>
+        <% end %>
+
+        <% if deck.id == @future_card_id %>
+          <div class="col-md-4">
+            <div class="well" id="rotation">
+              <center>
+              <h3><%= deck.card_name %>
+              <% if @future_orientation == 2 %>
+              (Reversed)
+              <% end %></h3>
+              <div>
+              <% if deck.image.url != nil %>
+                <%= image_tag deck.image.url, :size => '250x450' %>
+              <% end %>
+              </div>
+              <h6>© Copyright US Games Systems Inc., © Juliet Sharman-Burke, Giovanni Caselli</h6>
+              <% if @future_orientation == 2 %>
+              <h5>Reverse Themes:</h5>
+                <p><%= deck.reversal %></p>
+              <% else %>
+              <h5>Themes:</h5>
+                <p><%= deck.meaning %></p>
+              <% end %>
+              </center>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+</div>
+</center>

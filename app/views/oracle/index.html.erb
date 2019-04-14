@@ -1,0 +1,72 @@
+<center><h1>Digital Tarot</h1></center>
+<br />
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+      <%= link_to " Home ", root_path, class: "navbar-brand" %>
+      <%= link_to " Card of the Day ", spreads_path, class: "navbar-brand" %>
+      <%= link_to " Three Card Spread ", three_card_spread_path, class: "navbar-brand" %>
+      <%= link_to " View All Cards ", view_deck_path, class: "navbar-brand" %>
+      </div>
+    </nav>
+
+<center>
+<div class="container">
+  <h2>Welcome!</h2>
+
+  <p>
+    At Digital Tarot, we understand that the art of Tarot is an ancient practice,
+    it's teachings passed down through the words of its scholars and their writings. We also
+    understand that true Tarot readings require a human element. However, for the sake of
+    a little fun (and a final project...), we decided to put a deck in the hands of
+    a computer, just to see what would happen. We give you, Digital Tarot!
+  </p>
+
+<div class="row">
+  <% @decks.each do |deck| %>
+  <% if deck.id == @index_card_1 %>
+    <div class="col-md-4">
+        <div class="well well-sm" id="rotation">
+          <h4><%= deck.card_name %></h4>
+          <div>
+          <% if deck.image.url != nil %>
+            <%= image_tag deck.image.url, :size => '175x275' %>
+          <% end %>
+          </div>
+          <h6>© Copyright US Games Systems Inc., © Juliet Sharman-Burke, Giovanni Caselli</h6>
+        </div>
+    </div>
+    <% end %>
+
+    <% if deck.id == @index_card_2 %>
+      <div class="col-md-4">
+          <div class="well well-sm" id="rotation">
+            <h4><%= deck.card_name %></h4>
+            <div>
+            <% if deck.image.url != nil %>
+              <%= image_tag deck.image.url, :size => '175x275' %>
+            <% end %>
+            </div>
+            <h6>© Copyright US Games Systems Inc., © Juliet Sharman-Burke, Giovanni Caselli</h6>
+          </div>
+      </div>
+      <% end %>
+
+      <% if deck.id == @index_card_3 %>
+        <div class="col-md-4">
+            <div class="well well-sm" id="rotation">
+              <h4><%= deck.card_name %></h4>
+              <div>
+              <% if deck.image.url != nil %>
+                <%= image_tag deck.image.url, :size => '175x275' %>
+              <% end %>
+              </div>
+              <h6>© Copyright US Games Systems Inc., © Juliet Sharman-Burke, Giovanni Caselli</h6>
+            </div>
+        </div>
+        <% end %>
+  <% end %>
+</div>
+
+</div>
+</center>
